@@ -1,4 +1,4 @@
-package com.ApiRestCrud.ApiRestCrud.entity;
+package com.ApiRestCrud.ApiRestCrud.Entity;
 
 
 import jakarta.persistence.Entity;
@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "teacher")
-public class teacherEntity {
+public class TeacherEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -21,10 +21,10 @@ public class teacherEntity {
 	@Column(name = "state")
 	private boolean state;
 
-	public teacherEntity() {
+	public TeacherEntity() {
 	}
 
-	public teacherEntity(Long id, String fullName, String email, boolean state) {
+	public TeacherEntity(Long id, String fullName, String email, boolean state) {
 		this.id = id;
 		this.fullName = fullName;
 		this.email = email;

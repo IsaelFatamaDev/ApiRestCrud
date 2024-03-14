@@ -1,9 +1,9 @@
 package com.ApiRestCrud.ApiRestCrud.Repositories;
 
-import com.ApiRestCrud.ApiRestCrud.entity.teacherEntity;
+import com.ApiRestCrud.ApiRestCrud.Entity.TeacherEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface teacherRepository extends JpaRepository<teacherEntity, Long> {
+public interface TeacherRepository extends JpaRepository<TeacherEntity, Long> {
 }
