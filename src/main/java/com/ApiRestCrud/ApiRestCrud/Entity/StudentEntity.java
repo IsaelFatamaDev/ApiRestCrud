@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class StudentEntity {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	@Column(name = "full_name")
@@ -22,8 +22,7 @@ public class StudentEntity {
 	public StudentEntity() {
 	}
 
-	public StudentEntity(Long id, String fullName, String dni, boolean state) {
-		this.id = id;
+	public StudentEntity(String fullName, String dni, boolean state) {
 		this.fullName = fullName;
 		this.dni = dni;
 		this.state = state;

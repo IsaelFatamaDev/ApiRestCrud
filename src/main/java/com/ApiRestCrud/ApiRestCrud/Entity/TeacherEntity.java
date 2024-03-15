@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 @Table(name = "teacher")
 public class TeacherEntity {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	@Column(name = "full_name")
@@ -24,8 +24,7 @@ public class TeacherEntity {
 	public TeacherEntity() {
 	}
 
-	public TeacherEntity(Long id, String fullName, String email, boolean state) {
-		this.id = id;
+	public TeacherEntity(String fullName, String email, boolean state) {
 		this.fullName = fullName;
 		this.email = email;
 		this.state = state;
