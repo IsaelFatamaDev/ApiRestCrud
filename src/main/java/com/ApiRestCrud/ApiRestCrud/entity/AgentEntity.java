@@ -1,14 +1,16 @@
-package com.ApiRestCrud.ApiRestCrud.Entity;
+package com.ApiRestCrud.ApiRestCrud.entity;
 
 import jakarta.persistence.*;
+
+import java.util.UUID;
 
 @Entity
 @Table(name = "agent")
 public class AgentEntity {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-     private Long id;
+	@Column(name = "id", updatable = false, nullable = false)
+	private String id;
 
 	@ManyToOne
 	@JoinColumn(name = "id_student")
@@ -18,6 +20,7 @@ public class AgentEntity {
 	private boolean state;
 
 	public AgentEntity() {
+		this.id = UUID.randomUUID().toString();
 	}
 
 	public AgentEntity(StudentEntity id_student, String numberPhone, boolean state) {
@@ -26,11 +29,11 @@ public class AgentEntity {
 		this.state = state;
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

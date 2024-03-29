@@ -1,20 +1,30 @@
-package com.ApiRestCrud.ApiRestCrud.Entity;
+package com.ApiRestCrud.ApiRestCrud.entity;
 
 import jakarta.persistence.*;
+
+import java.util.UUID;
 
 @Entity
 @Table(name = "qr")
 public class QrEntity {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	@Column(name = "id", updatable = false, nullable = false)
+	private String id;
+	@Column(name = "name_qr")
 	private String nameQr;
-	private boolean state;
+	@Column(name = "state")
+     private boolean state;
+
+	@Lob
+	@Column(name = "image_data")
+	private byte[] imageData;
+
 	@ManyToOne
 	@JoinColumn(name = "id_assignment_student")
 	private AssignmentStudentEntity assignmentStudent;
 
 	public QrEntity() {
+		this.id = UUID.randomUUID().toString();
 	}
 
 	public QrEntity(String nameQr, boolean state, AssignmentStudentEntity assignmentStudent) {
@@ -23,11 +33,11 @@ public class QrEntity {
 		this.assignmentStudent = assignmentStudent;
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

@@ -1,14 +1,16 @@
-package com.ApiRestCrud.ApiRestCrud.Entity;
+package com.ApiRestCrud.ApiRestCrud.entity;
 
 import jakarta.persistence.*;
+
+import java.util.UUID;
 
 @Entity
 @Table(name = "student")
 public class StudentEntity {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	@Column(name = "id", updatable = false, nullable = false)
+	private String id;
 
 	@Column(name = "full_name")
      private String fullName;
@@ -20,19 +22,21 @@ public class StudentEntity {
      private boolean state;
 
 	public StudentEntity() {
+		this.id = UUID.randomUUID().toString();
 	}
 
 	public StudentEntity(String fullName, String dni, boolean state) {
+		this();
 		this.fullName = fullName;
 		this.dni = dni;
 		this.state = state;
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
