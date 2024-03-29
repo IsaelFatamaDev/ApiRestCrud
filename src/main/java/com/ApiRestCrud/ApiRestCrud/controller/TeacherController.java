@@ -1,14 +1,14 @@
-package com.ApiRestCrud.ApiRestCrud.Controller;
+package com.ApiRestCrud.ApiRestCrud.controller;
 
-import com.ApiRestCrud.ApiRestCrud.Services.TeacherServices;
-import com.ApiRestCrud.ApiRestCrud.Entity.TeacherEntity;
+import com.ApiRestCrud.ApiRestCrud.services.TeacherServices;
+import com.ApiRestCrud.ApiRestCrud.entity.TeacherEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/teacher")
+@RequestMapping("/api/v1/teachers")
 public class TeacherController {
 	private final TeacherServices teacherService;
 
@@ -16,28 +16,28 @@ public class TeacherController {
 		this.teacherService = teacherService;
 	}
 
-	@GetMapping("/all")
+	@GetMapping
 	public List<TeacherEntity> findAllTeachers() {
 		return teacherService.findAllTeachers();
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping("/{dni}")
 	public Optional<TeacherEntity> findTeacherById(@PathVariable("id") Long id) {
 		return teacherService.findTeacherById(id);
 	}
 
-	@PostMapping("/add")
+	@PostMapping
 	public TeacherEntity saveTeacher(@RequestBody TeacherEntity teacher) {
 		return teacherService.saveTeacher(teacher);
 	}
 
-	@PutMapping("/update/{id}")
-	public TeacherEntity updateTeacher(@PathVariable("id") Long id, @RequestBody TeacherEntity teacher) {
+	@PutMapping("/{dni}")
+	public TeacherEntity updateTeacher(@PathVariable("dni") Long id, @RequestBody TeacherEntity teacher) {
 		return teacherService.updateTeacher(id, teacher);
 	}
 
-	@DeleteMapping("/delete/{id}")
-	public void deleteTeacher(@PathVariable("id") Long id) {
+	@DeleteMapping("/{dni}")
+	public void deleteTeacher(@PathVariable("dni") Long id) {
 		teacherService.deleteTeacher(id);
 	}
 }
