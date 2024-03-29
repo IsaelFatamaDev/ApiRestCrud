@@ -1,6 +1,6 @@
-package com.ApiRestCrud.ApiRestCrud.Services;
+package com.ApiRestCrud.ApiRestCrud.services;
 
-import com.ApiRestCrud.ApiRestCrud.Entity.TeacherEntity;
+import com.ApiRestCrud.ApiRestCrud.entity.TeacherEntity;
 
 import java.util.List;
 import java.util.Optional;

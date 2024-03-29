@@ -1,8 +1,8 @@
-package com.ApiRestCrud.ApiRestCrud.Services.Implementation;
+package com.ApiRestCrud.ApiRestCrud.services.implementation;
 
-import com.ApiRestCrud.ApiRestCrud.Repositories.TeacherRepository;
-import com.ApiRestCrud.ApiRestCrud.Services.TeacherServices;
-import com.ApiRestCrud.ApiRestCrud.Entity.TeacherEntity;
+import com.ApiRestCrud.ApiRestCrud.repositories.TeacherRepository;
+import com.ApiRestCrud.ApiRestCrud.services.TeacherServices;
+import com.ApiRestCrud.ApiRestCrud.entity.TeacherEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
