@@ -1,6 +1,6 @@
-package com.ApiRestCrud.ApiRestCrud.Repositories;
+package com.ApiRestCrud.ApiRestCrud.repositories;
 
-import com.ApiRestCrud.ApiRestCrud.Entity.TeacherEntity;
+import com.ApiRestCrud.ApiRestCrud.entity.TeacherEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
