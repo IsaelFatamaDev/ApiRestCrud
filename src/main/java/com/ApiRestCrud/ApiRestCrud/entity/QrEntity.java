@@ -27,9 +27,11 @@ public class QrEntity {
 		this.id = UUID.randomUUID().toString();
 	}
 
-	public QrEntity(String nameQr, boolean state, AssignmentStudentEntity assignmentStudent) {
+	public QrEntity(String nameQr, boolean state, byte[] imageData, AssignmentStudentEntity assignmentStudent) {
+		this.id = UUID.randomUUID().toString();
 		this.nameQr = nameQr;
 		this.state = state;
+		this.imageData = imageData;
 		this.assignmentStudent = assignmentStudent;
 	}
 

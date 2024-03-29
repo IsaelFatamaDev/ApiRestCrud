@@ -1,6 +1,9 @@
 package com.ApiRestCrud.ApiRestCrud.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.util.UUID;
 
@@ -63,4 +66,5 @@ public class StudentEntity {
 	public void setState(boolean state) {
 		this.state = state;
 	}
+
 }

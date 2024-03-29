@@ -2,11 +2,16 @@ package com.ApiRestCrud.ApiRestCrud.controller;
 
 import com.ApiRestCrud.ApiRestCrud.entity.StudentEntity;
 import com.ApiRestCrud.ApiRestCrud.services.StudentServices;
+import com.ApiRestCrud.ApiRestCrud.utils.QRCodeGenerator;
+import com.google.zxing.WriterException;
 import org.apache.coyote.BadRequestException;
 import org.springframework.web.bind.annotation.*;
-import java.util.List;
-import java.util.Optional;@RestController
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Optional;
+
+@RestController
 @RequestMapping("/api/v1/students")
 public class StudentController {
 	private final StudentServices studentService;
@@ -30,6 +35,11 @@ public class StudentController {
 		Optional<StudentEntity> existingStudent = studentService.findByDni(student.getDni());
 		if (existingStudent.isPresent()) {
 			throw new BadRequestException("Ya existe un estudiante con el mismo DNI");
+		}
+		try {
+			QRCodeGenerator.generateQRCode(student);
+		} catch (IOException | WriterException e) {
+			e.printStackTrace();
 		}
 		return studentService.saveStudent(student);
 	}
