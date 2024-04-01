@@ -37,7 +37,8 @@ public class StudentController {
 			throw new BadRequestException("Ya existe un estudiante con el mismo DNI");
 		}
 		try {
-			QRCodeGenerator.generateQRCode(student);
+			String qrCodeBase64 = QRCodeGenerator.generateQRCodeBase64(student);
+			System.out.println("QR Code Base64: " + qrCodeBase64);
 		} catch (IOException | WriterException e) {
 			e.printStackTrace();
 		}
