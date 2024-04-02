@@ -20,19 +20,18 @@ public class QrEntity {
 	private byte[] imageData;
 
 	@ManyToOne
-	@JoinColumn(name = "id_assignment_student")
-	private AssignmentStudentEntity assignmentStudent;
+	@JoinColumn(name = "id_student")
+	private StudentEntity StudentEntity;
 
 	public QrEntity() {
 		this.id = UUID.randomUUID().toString();
 	}
-
-	public QrEntity(String nameQr, boolean state, byte[] imageData, AssignmentStudentEntity assignmentStudent) {
-		this.id = UUID.randomUUID().toString();
+	public QrEntity(String id, String nameQr, boolean state, byte[] imageData, com.ApiRestCrud.ApiRestCrud.entity.StudentEntity studentEntity) {
+		this();
 		this.nameQr = nameQr;
 		this.state = state;
 		this.imageData = imageData;
-		this.assignmentStudent = assignmentStudent;
+		StudentEntity = studentEntity;
 	}
 
 	public String getId() {
@@ -59,11 +58,19 @@ public class QrEntity {
 		this.state = state;
 	}
 
-	public AssignmentStudentEntity getAssignmentStudent() {
-		return assignmentStudent;
+	public byte[] getImageData() {
+		return imageData;
 	}
 
-	public void setAssignmentStudent(AssignmentStudentEntity assignmentStudent) {
-		this.assignmentStudent = assignmentStudent;
+	public void setImageData(byte[] imageData) {
+		this.imageData = imageData;
+	}
+
+	public com.ApiRestCrud.ApiRestCrud.entity.StudentEntity getStudentEntity() {
+		return StudentEntity;
+	}
+
+	public void setStudentEntity(com.ApiRestCrud.ApiRestCrud.entity.StudentEntity studentEntity) {
+		StudentEntity = studentEntity;
 	}
 }

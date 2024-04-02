@@ -11,16 +11,13 @@ import org.apache.tomcat.util.codec.binary.Base64;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
 
 public class QRCodeGenerator {
 
 	public static String generateQRCodeBase64(StudentEntity student) throws WriterException, IOException {
 		var qrCodeWriter = new QRCodeWriter();
 		BitMatrix bitMatrix = qrCodeWriter.encode(
-				"ID: " + student.getId() + "\n" +
-						"Firstname: " + student.getFullName() + "\n" +
+				"Firstname: " + student.getFullName() + "\n" +
 						"Dni: " + student.getDni(), BarcodeFormat.QR_CODE, 400, 400);
 
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
