@@ -19,7 +19,7 @@ public class QrServicesImp implements QrServices {
 
 	@Override
 	public List<QrEntity> findAllQr() {
-		return List.of();
+		return qrRepository.findAll();
 	}
 
 	@Override

@@ -41,7 +41,7 @@ public class StudentServicesImp implements StudentServices {
 			QrEntity qrEntity = new QrEntity();
 			qrEntity.setNameQr("QR_" + student.getFullName());
 			qrEntity.setState(true);
-			qrEntity.setImageData(qrCodeBase64.getBytes());
+			qrEntity.setImageData(qrCodeBase64);
 			qrEntity.setStudentEntity(savedStudent);
 			qrRepository.save(qrEntity);
 		} catch (IOException | WriterException e) {

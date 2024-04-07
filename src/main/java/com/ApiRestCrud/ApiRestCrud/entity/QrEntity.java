@@ -13,25 +13,25 @@ public class QrEntity {
 	@Column(name = "name_qr")
 	private String nameQr;
 	@Column(name = "state")
-     private boolean state;
+	private boolean state;
 
-	@Lob
-	@Column(name = "image_data")
-	private byte[] imageData;
+	@Column(name = "image_data", columnDefinition = "TEXT")
+	private String imageData;
 
 	@ManyToOne
 	@JoinColumn(name = "id_student")
-	private StudentEntity StudentEntity;
+	private StudentEntity studentEntity;
 
 	public QrEntity() {
 		this.id = UUID.randomUUID().toString();
 	}
-	public QrEntity(String id, String nameQr, boolean state, byte[] imageData, com.ApiRestCrud.ApiRestCrud.entity.StudentEntity studentEntity) {
+
+	public QrEntity(String id, String nameQr, boolean state, String imageData, StudentEntity studentEntity) {
 		this();
 		this.nameQr = nameQr;
 		this.state = state;
 		this.imageData = imageData;
-		StudentEntity = studentEntity;
+		this.studentEntity = studentEntity;
 	}
 
 	public String getId() {
@@ -58,19 +58,19 @@ public class QrEntity {
 		this.state = state;
 	}
 
-	public byte[] getImageData() {
+	public String getImageData() {
 		return imageData;
 	}
 
-	public void setImageData(byte[] imageData) {
+	public void setImageData(String imageData) {
 		this.imageData = imageData;
 	}
 
-	public com.ApiRestCrud.ApiRestCrud.entity.StudentEntity getStudentEntity() {
-		return StudentEntity;
+	public StudentEntity getStudentEntity() {
+		return studentEntity;
 	}
 
-	public void setStudentEntity(com.ApiRestCrud.ApiRestCrud.entity.StudentEntity studentEntity) {
-		StudentEntity = studentEntity;
+	public void setStudentEntity(StudentEntity studentEntity) {
+		this.studentEntity = studentEntity;
 	}
 }
