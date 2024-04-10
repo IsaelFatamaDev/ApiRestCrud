@@ -69,4 +69,9 @@ public class StudentServicesImp implements StudentServices {
 	public void deleteStudent(String dni) {
 		studentRepository.deleteByDni(dni);
 	}
+	@Override
+	public List<QrEntity> findAllQr() {
+		return qrRepository.findAll();
+	}
+
 }

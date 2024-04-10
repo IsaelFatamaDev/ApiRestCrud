@@ -1,5 +1,6 @@
 package com.ApiRestCrud.ApiRestCrud.services;
 
+import com.ApiRestCrud.ApiRestCrud.entity.QrEntity;
 import com.ApiRestCrud.ApiRestCrud.entity.StudentEntity;
 
 import java.util.List;
@@ -11,4 +12,6 @@ public interface StudentServices {
 	StudentEntity saveStudent(StudentEntity student);
 	StudentEntity updateStudent(StudentEntity student);
 	void deleteStudent(String dni);
+	List<QrEntity> findAllQr();
+
 }
